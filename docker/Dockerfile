@@ -61,7 +61,7 @@ COPY docker/entrypoint.sh /
 RUN chmod +x /entrypoint.sh
 
 # Create non-root user to run app
-RUN adduser -s /bin/false -D bitwarden && chown -R bitwarden:bitwarden /app /etc/bitwarden
+RUN useradd -s /bin/false bitwarden && chown -R bitwarden:bitwarden /app /etc/bitwarden
 
 USER bitwarden:bitwarden
 HEALTHCHECK CMD curl -f http://localhost:5000/alive || exit 1
