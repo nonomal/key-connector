@@ -96,7 +96,7 @@ jobs:
       - name: Build Docker images
         run: |
           docker build -t ${{ env._SERVICE_NAME }} \
-            ./src/KeyConnector
+            -f docker/Dockerfile .
 
       - name: Tag and Push RC to Docker Hub
         if: (github.ref == 'refs/heads/rc')

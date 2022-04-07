@@ -16,4 +16,4 @@ dotnet publish "$DIR/KeyConnector.csproj" -c "Release" -o "$DIR/obj/build-output
 
 echo -e "\nBuilding docker image"
 docker --version
-docker build -t bitwarden/key-connector "$DIR/."
+docker build -t bitwarden/key-connector "$DIR/../../docker"
