@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ ! -f /etc/bitwarden/key-connector/bwkc.pfx ]; then
+if [ ! -f $keyConnectorSettings__certificate__filesystemPath ]; then
   openssl req \
   -x509 \
   -newkey rsa:4096 \
@@ -13,7 +13,7 @@ if [ ! -f /etc/bitwarden/key-connector/bwkc.pfx ]; then
 
   openssl pkcs12 \
   -export \
-  -out /etc/bitwarden/key-connector/bwkc.pfx \
+  -out $keyConnectorSettings__certificate__filesystemPath \
   -inkey bwkc.key \
   -in bwkc.crt \
   -passout pass:$keyConnectorSettings__certificate__filesystemPassword
